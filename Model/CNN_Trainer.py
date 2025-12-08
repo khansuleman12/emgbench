@@ -7,7 +7,10 @@ from torchvision.models import resnet50, ResNet50_Weights
 import torch
 from torchvision.models import convnext_tiny, ConvNeXt_Tiny_Weights
 from tqdm import tqdm
-import Model.VisualTransformer as VisualTransformer
+try:
+    import Model.VisualTransformer as VisualTransformer
+except ImportError:
+    VisualTransformer = None  # ViT models disabled if semilearn is missing
 import Model.ml_metrics_utils as ml_utils
 import numpy as np
 from torch.utils.data import DataLoader
